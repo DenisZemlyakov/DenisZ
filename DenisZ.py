@@ -1,31 +1,39 @@
-from random import choice
-win = 0
-loss = 0
-tie = 0
-rules = {'камень': 'бумага', 'ножницы': 'камень', 'бумага': 'ножницы'}
-previous = ['камень', 'бумага', 'ножницы']
-while True:
- human = input('камень, бумага, ножницы or Quit???: ')
- computer = rules[choice(previous)]  
-
-if human in ('Quit'):
-    print("YoU WoN %d TiMEs!" % win)
-    print("yOu lOSt %d tImEs!" % loss)
-    print("YoU TIeD %d TiMEs!" % tie)
-    print("SeE YoU LaTeR!!! :)")
-
-elif human in rules:
-    previous.append(human)
-    print('komp igraet', computer, end='; ')
-
-    if rules[computer] == human:  
-        print('WiN!')
-        win += 1
-    elif rules[human] == computer:  
-        print('pc win!!!')
-        loss += 1
-    else:
-        print("tIE!")
-        tie += 1
-
-else: print("that's not a valid choice")
+import random
+ver = 0
+while (ver == 0):
+        player = int(input("1 - камень, 2 - ножницы, 3 - бумага. "))
+        if (player == 1 or player == 2 or player == 3):
+            ver = 1    
+if player == 1:
+        print("камень.")  
+if player == 2:
+        print("ножницы.") 
+if player == 3:
+        print("бумагу.")  
+comp = random.randint(1, 3)
+if comp == 1:
+        print("Компьютер выбрал камень.") 
+if comp == 2:
+        print("Компьютер выбрал ножницы.")
+if comp == 3:
+        print("Компьютер выбрал бумагу.")
+if player == comp:
+        win = 0
+if player == 1 and comp == 2:
+        win = 1 
+if player == 1 and comp == 3:
+        win = 2 
+if player == 2 and comp == 1:
+        win = 2  
+if player == 2 and comp == 3:
+        win = 1 
+if player == 3 and comp == 1:
+        win = 1
+if player == 3 and comp == 2:
+        win = 2
+if win == 0:
+        print("Ничья!")
+if win == 1:
+        print("ты Победил")
+if win == 2:
+        print("Победил компьютер!")
