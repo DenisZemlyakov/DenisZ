@@ -99,6 +99,7 @@ if m==1:
 if m==2:
 				while 1:
 								pass
+
 print()
 #popitka
 from keyboard import*
