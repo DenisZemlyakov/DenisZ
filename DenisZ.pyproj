@@ -21,7 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="den4ik modul.py">
+    <Compile Include="mymodul.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DenisZ.py" />
