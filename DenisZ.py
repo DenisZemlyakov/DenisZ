@@ -86,3 +86,45 @@ if win == 1:
         print("ты Победил")
 if win == 2:
         print("Победил компьютер!")
+print()
+#..
+from keyboard import*
+from random import*
+from den4ik modul import*
+v1=["kivi","käärid","paaber"]
+v2=["kivi","käärid","paaber"]
+m=start()
+if m==1:
+				bot_vs_bot(v1,v2)
+if m==2:
+				while 1:
+								pass
+print()
+#popitka
+from keyboard import*
+from random import*
+from den4ik modul import*
+def start():
+    print("kivi,käärid,paber")
+    m=3
+    while m not in[1,2]:
+        try:
+            m=int(input("kellega mängime?\n1´-bootid \n2-robotiga"))
+        except:
+            ValueError
+    return m
+def bot_vs_bot(v1:list,v2:list):
+    print("kas mängime? q - välja, enter -mängimise")
+				if read_key()=="q":
+								break
+				elif read_key()=="enter":
+								p1=choice(v1)
+								print("Esimine bot: ",p1)
+								p2=choice(v2)
+								print("Teine bot:",p2)
+								if p1==p2:
+												print("viik")
+								elif p1==v1[0] and p2==v2[1] or p1==v2[0] or p1==v1[1] and p2==v2[2]:
+												print("võitist 1")
+								else:
+												print("võitist 2")
