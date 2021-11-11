@@ -35,18 +35,40 @@ def is_year_leap(aasta: int):
 								vastus=False
 				return vastus
 
-"""
-Квадрат
-=======
-Написать функцию square, принимающую 1 аргумент — сторону квадрата, и возвращающую 3 значения (с помощью кортежа):
-периметр квадрата, площадь квадрата и диагональ квадрата.
-"""
 import math
-
 def square(a):
-
     p = 4 * a
     s = a ** 2
     diag = a * math.sqrt(2)
-
     return p, s, diag
+
+def season(moth):
+    if month == 12 or month < 3:
+        return "Зима"
+    elif month == 3 or month < 6:
+        return "Весна"
+    elif month == 6 or month < 9:
+        return "Лето"
+    else:
+        return "Осень"
+month = input("Введите месяц(число):")
+while True:
+    if not month.isdigit():
+        print("Sisendi viga!")
+        print("Kasutage ainult täisarve.")
+        month = input("Введите месяц(число):")
+        continue
+    else:
+        break
+month = int(month)
+while True:
+    if month == 0:
+        print("Такого месяца несуществует")
+        print("Используйте только целые числа.")
+        month = input("Введите месяц(число):")
+        continue
+    else:
+        break
+month = int(month)
+answer = season(month)
+print(answer)
