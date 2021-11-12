@@ -1,74 +1,99 @@
-def arithmetic(a: float,b:float,c:str):
-				"""Lihtne kalkulaator
-				+ - liitmine
-				- - lahutamine
-				* - korrutamine
-				/ - jagamine
-				:param float a: Esimene arv
-				:param float b: Teine arv
-				:param str c:Aritmeetiline tehing
-				:rtype float:
-				"""
-				if c=="+":
-								r=a+b
-				elif c=="-":
-								r=a-b
-				elif c=="*":
-								r=a*b
-				elif c=="/":
-								if b!=0:
-												r=a/b
-								else:
-												print("Div0")
-				else:
-								print("viga")
-				return r
-def is_year_leap(aasta: int):
-				"""Liigaasta leidmine
-				Tagastab true kui aasta on liigaasta ja false kui ei ole
-				:param int Aasta number
-				:rtype bool: Funktsioni vastus loogilises formaadis
-				"""
-				if aasta%4==0:
-								vastus=True
-				else:
-								vastus=False
-				return vastus
-
-import math
-def square(a):
-    p = 4 * a
-    s = a ** 2
-    diag = a * math.sqrt(2)
-    return p, s, diag
-
-def season(moth):
-    if month == 12 or month < 3:
-        return "Зима"
-    elif month == 3 or month < 6:
-        return "Весна"
-    elif month == 6 or month < 9:
-        return "Лето"
+def arithmetic(a: float,b:float,c=str):
+    """Lihtne kalkulaator
+    + - liitamine
+    - - lahutamine
+    * - korrutamine
+    / - jagamine
+    :param float a: Esimene arv
+    :param float b: Teine arv
+    :param str c: Aritmeetiline tehing
+    :rtype float:
+    """
+    if c=="+":
+        r=a+b
+    elif c=="-":
+        r=a-b
+    elif c=="*":
+        r=a*b
+    elif c=="/":
+        if b!=0:
+            r=a/b
+        else:
+            r="Div/0"
     else:
-        return "Осень"
-month = input("Введите месяц(число):")
-while True:
-    if not month.isdigit():
-        print("Sisendi viga!")
-        print("Kasutage ainult täisarve.")
-        month = input("Введите месяц(число):")
-        continue
+        r="tundmatu sym"
+    return r
+def is_year_leap(year:int):
+    """Мы пишем для любого года, и программа определяет, является ли год получения визы Истинным или Неверным..
+    """
+    if year%4==0:
+        print("True")
     else:
-        break
-month = int(month)
-while True:
-    if month == 0:
-        print("Такого месяца несуществует")
-        print("Используйте только целые числа.")
-        month = input("Введите месяц(число):")
-        continue
+        print("False")
+    return("")
+def square(kv:float):
+    """Записываем сторону квадрата, и программа дает нам площадь, периметр и диагональ квадрата.
+    """
+    return(4*kv, kv**2, (2*kv**2)**.5)
+    return("")
+def season(kuu:int):
+    """Пишем от 1 до 12 месяцев и программа определяет сезон по месяцам
+    """
+    if kuu==12:
+        print("Зима")
+    elif 0<kuu<3:
+        print("Зима")
+    elif 2<kuu<6:
+        print("Весна")
+    elif 5<kuu<9:
+        print("Лето")
+    elif 8<kuu<12:
+        print("Осень")
     else:
-        break
-month = int(month)
-answer = season(month)
-print(answer)
+        print("Viga!")
+    return
+def bank(a:float,years:int):
+    """Ставим деньги на баланс и ждем n количество лет
+    """
+    for _ in range(years):
+        a=((1.1*1/100)*a)*100
+    print("Ваш баланс:",a)
+    return("")
+def is_prime(a:int):
+    """Мы пишем число от 0 до 1000 и возвращаем true, если это просто, и false в противном случае.
+    """
+    b=2
+    while a%b!=0:
+        b+=1
+    return b==a
+def xor_cipher(string:str, key:str)->str:
+    """Общее слово закодировано
+    """
+    result=""
+    temp=int()
+    for i in range(len(string)):
+        temp=ord(string[i])
+        for j in range(len(key)):
+            temp^=ord(key[j])
+        result+=chr(temp)
+    return result
+def xor_uncipher(string:str, key: str)->str:
+    """кодированный текст декодируется
+    """
+    result = ""
+    temp = []
+    for i in range(len(string)):
+        temp.append(string[i])
+        for j in reversed(range(len(key))):
+            temp[i] = chr(ord(key[j]) ^ ord(temp[i]))
+        result += temp[i]
+    return result
+def date(day:int, month:int, year:int):
+    set_months = {1: 31,2: 28, 3: 31,4: 30,5: 31,6: 30,7: 31,8: 31,9: 30,10: 31,11: 30,12: 31}
+    if year>0 and (month>=1 and month<=12):
+        if day in range(1, set_months[month]+1):
+           return True
+        else:
+            return False
+    else:
+        return False
